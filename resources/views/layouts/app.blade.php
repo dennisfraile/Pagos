@@ -23,8 +23,14 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         Ingreso
                     </a>
-                </div>
-
+                  </div>
+                  <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                      <li>
+                        <a href="{{ url('/charges') }}">Efectuar Pagos</a>
+                      </li>
+                    </ul>
+                  </div>
             </div>
         </nav>
 

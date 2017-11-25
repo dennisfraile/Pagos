@@ -25,18 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function create(Request $req)
-    {
-      \Stripe\Stripe::setApiKey(env('APP_STRIPE_SECRET_KEY',''));
-      $token = $req->input('stripeToken');
-      $charge = \Stripe\Charge::create(array(
-        "amount"=> 2000,
-        "currency" => "usd",
-        "description" => "example",
-        "source" => $token
-      ));
-      return var_dump($charge);
-      //return redirect('/')->with('status', $req->input('stripeToken'));
-    }
 }

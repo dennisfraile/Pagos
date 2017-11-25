@@ -14,7 +14,8 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::post('/charges','HomeController@create');
+Route::get('/charges', 'Pagos\PagosController@show');
+Route::post('/charges','Pagos\PagosController@create');
 // Route::group(['middleware'=>['web']], function ()
 // {
 //
