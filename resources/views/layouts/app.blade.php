@@ -21,7 +21,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Ingreso                        
+                        Ingreso
                     </a>
                 </div>
 
@@ -32,6 +32,10 @@
     </div>
 
     <!-- Scripts -->
+    @section('scripts')
     <script src="{{ asset('js/app.js') }}"></script>
+    {{-- Stripe.js --}}
+    <script src="https://js.stripe.com/v3/"></script>
+    @show
 </body>
 </html>
