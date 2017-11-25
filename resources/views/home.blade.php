@@ -95,12 +95,6 @@
 @section('scripts')
   @parent
   <script>
-
-    //let stripe = Stripe();
-    //const card = elements.create('card', {style: style});
-    //card.mount('#card-element');
-
-
     const stripe = Stripe("{!! env('APP_STRIPE_PUBLISABLE_KEY','') !!}");
     const elements = stripe.elements();
     const tarjeta = elements.create('card');
@@ -115,7 +109,6 @@
     });
 
     /*Manejo de formulario*/
-  //  console.log(elements);
     const form = document.getElementById('payment-form');
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -142,8 +135,8 @@
       form.appendChild(hiddenInput);
 
       // Submit the form
-      //form.submit();
-      console.log(token);
+      form.submit();
+      //console.log(token.id);
     }
     </script>
 @endsection

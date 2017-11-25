@@ -28,33 +28,15 @@ class HomeController extends Controller
 
     public function create(Request $req)
     {
-      // $compra = 2550;
-      // \Stripe\Stripe::setApiKey(env('APP_STRIPE_SECRET_KEY',''));
-      // $resp = \Stripe\Token::create(array(
-      // "card" => array(
-      //   "number" => "4242424242424242",
-      //   "exp_month" => 11,
-      //   "exp_year" => 2018,
-      //   "cvc" => "314"
-      //   )
-      // ));
-      // try {
-      //   $pago = \Stripe\Charge::create(array(
-      //     "amount" => $compra,
-      //     "currency" => "usd",
-      //     "source"=> $resp['id']
-      //   ));
-      //
-      //   return redirect('/')->with('status', $pago['paid']);
-      //
-      //   //return redirect('/');
-      // } catch (\Stripe\Error\Card $e) {
-      //   $body = $e->getJsonBody();
-      //   $err = $body['error'];
-      //   //session(['error',$err['message']]);
-      //   return redirect('/')->with('status', $err['message']);
-      // }
-      //return var_dump($req);
-      return redirect('/')->with('status', $req->input('stripeToken'));
+      \Stripe\Stripe::setApiKey(env('APP_STRIPE_SECRET_KEY',''));
+      $token = $req->input('stripeToken');
+      $charge = \Stripe\Charge::create(array(
+        "amount"=> 2000,
+        "currency" => "usd",
+        "description" => "example",
+        "source" => $token
+      ));
+      return var_dump($charge);
+      //return redirect('/')->with('status', $req->input('stripeToken'));
     }
 }
