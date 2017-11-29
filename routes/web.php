@@ -10,16 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('home');
+});
 
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/charges', 'Pagos\PagosController@show');
 Route::post('/charges','Pagos\PagosController@create');
-// Route::group(['middleware'=>['web']], function ()
-// {
-//
-//     route::resource('formPagos','pagosController');
-//
-//
-// });
+Route::group(['middleware'=>['web']], function ()
+{
+
+    route::resource('formPagos','pagosController');
+    route::resource('agua','aguaController');
+    route::resource('luz','luzController');
+    route::resource('telefono','telefonoController');
+    route::resource('inter','interController');
+    route::resource('info','infoController');
+
+
+
+
+});

@@ -27,15 +27,15 @@
 							</div>
 						
 							<div class="input-group">
-								<input type="text" id="total" name="total">
+								<input type="text" id="total" name="total" readonly="readonly">
 								<label class="label" for="total">Total consumido:</label>
 							</div>
 							<div class="input-group">
-								<input type="text" id="fecha" name="fecha">
+								<input type="text" id="fecha" name="fecha" readonly="readonly">
 								<label class="label" for="fecha">Fecha de vencimiento:</label>
 							</div>
 							<div class="input-group">
-								<input type="text" id="Tpago" name="Tpago">
+								<input type="text" id="Tpago" name="Tpago" readonly="readonly">
 								<label class="label" for="Tpago">Total a pagar:</label>
 							</div>
 					</div>
