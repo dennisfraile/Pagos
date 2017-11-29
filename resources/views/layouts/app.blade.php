@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="autor" content="NTN">
+    <meta name="keywords" lang="es" content="css,html,javascript,recibos,pagos,pagos en linea,agua,luz,telefono">
+    <meta name="keywords" lang="en-us" content="css,html,javascript,receipt,payment,pay on line,water,light,telephone">
+    <meta name="description" content="Sitio web en el cual se cancelan servicios basicos como luz, agua, telefono e internet">
+    <meta name="copyright" content="&copy;2017 NTN group">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
