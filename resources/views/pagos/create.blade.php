@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.admin')
+@section('contenido')
   <div class="container">
     <div id="card-errors" role="alert" class="alert alert-danger"></div>
     @if (session('status'))

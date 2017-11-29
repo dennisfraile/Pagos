@@ -12,7 +12,7 @@
     <meta name="keywords" lang="en-us" content="css,html,javascript,receipt,payment,pay on line,water,light,telephone">
     <meta name="description" content="Sitio web en el cual se cancelan servicios basicos como luz, agua, telefono e internet">
     <meta name="copyright" content="&copy;2017 NTN group">
-    
+
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
@@ -27,7 +27,7 @@
 
     <!-- Estilo de calendarios -->
     <link rel="stylesheet" href="{{asset('css/tcal.css')}}"></script>
-    
+
     <!-- Estilos del formulario Form-->
     <link rel="stylesheet" href="{{asset('/css/estilos.css')}}">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -56,7 +56,7 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
-              
+
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -70,17 +70,17 @@
                       Pagos en linea
                     </p>
                   </li>
-                  
+
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    
+
                     <div class="pull-right">
                       <a href="#" class="btn btn-default btn-flat">Cerrar</a>
                     </div>
                   </li>
                 </ul>
               </li>
-              
+
             </ul>
           </div>
 
@@ -91,11 +91,11 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-                    
+
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"></li>
-            
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-archive"></i>
@@ -107,16 +107,17 @@
                 <li><a href="{{url('luz')}}"><i class="fa fa-plug"></i>LUZ</a></li>
                 <li><a href="{{url('telefono')}}"> <i class="fa fa-phone"></i>TELEFONO</a></li>
                 <li><a href="{{url('inter')}}"> <i class="fa fa-wifi"></i>INTERNET</a></li>
+
               </ul>
             </li>
-            
+
             <li>
               <a href="{{url('info')}}">
                 <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
                 <small class="label pull-right bg-yellow">IT</small>
               </a>
             </li>
-                        
+
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -125,10 +126,10 @@
        <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        
+
         <!-- Main content -->
         <section class="content">
-          
+
           <div class="row">
             <div class="col-md-12">
               <div class="box">
@@ -136,7 +137,7 @@
                   <h3 class="box-title">Sistema de Cancelacion de Servicios en Linea</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    
+
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
                 </div>
@@ -149,7 +150,7 @@
 		                          <!--Fin Contenido-->
                            </div>
                         </div>
-		                    
+
                   		</div>
                   	</div><!-- /.row -->
                 </div><!-- /.box-body -->
@@ -167,7 +168,9 @@
         <strong>Copyright &copy; 2017-2032 <a href="#"></a>NTN</strong> All rights reserved.
       </footer>
 
-      
+    @section('scripts')
+    {{-- Stripe.js --}}
+    <script src="https://js.stripe.com/v3/"></script>
     <!-- jQuery 2.1.4 -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
@@ -179,9 +182,9 @@
     <script type="text/javascript" src="{{asset('js/tcal.js')}}"></script>
 
     <!-- Validar -->
-    
+
     <script type="text/javascript" src="{{asset('js/validarJS.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/validarJQue.js')}}"></script>
-    
+    @show
   </body>
 </html>
