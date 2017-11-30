@@ -21,5 +21,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'nit' => $faker->numberBetween($min = 10000000000000, $max = 99999999999999),
+        'direccion' => $faker->streetAddress()
     ];
 });

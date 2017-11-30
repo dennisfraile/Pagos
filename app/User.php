@@ -9,21 +9,5 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'dui', 'nic',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'nic',
-    ];
+    protected $fillable = ['username', 'password','nit', 'email', 'direccion'];
 }
