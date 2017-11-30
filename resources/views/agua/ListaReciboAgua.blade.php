@@ -9,18 +9,18 @@
                             </li>
                         </ol>
                     </div>
-               
+
                 <!-- /.row -->
-         
+
         <div class="col-lg-12">
-        
+
         </div>
 </div>
 
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h2>Lista de recibos de Agua</h2>
-        <br>	
+        <br>
 	</div>
 </div>
 
@@ -32,29 +32,30 @@
 					<th>NIC</th>
 					<th>Fecha de vencimiento</th>
 					<th>Monto Total</th>
-					<th>Total Consumido</th>
+					<th>Fecha emision</th>
 					<th>Estado</th>
 				</thead>
                @foreach ($recibos as $rec)
 					<tr>
 						<td>{{ $rec->nic}}</td>
-						<td>{{ $rec->fechavencimiento}}</td>
-						<td>{{ $rec->montototal}}</td>
-						<td>{{ $rec->total_consumido}}</td>
+						<td>{{ $rec->fecha_vencimiento}}</td>
+						<td>{{ $rec->monto_total}}</td>
+            <td>{{ $rec->fecha_emision }}</td>
+
 						@if($rec->estado==1)
 							<td>Pagado</td>
 							<td>
-	                        <a href="" data-target="#modal-delete-{{$rec->idrec}}" data-toggle="modal"><button class="btn btn-lg btn-danger" disabled>
+	                        <a href="" data-target="#modal-delete-{{$rec->id}}" data-toggle="modal"><button class="btn btn-lg btn-danger" disabled>
 	                        <i class="fa fa-credit-card"></i> Pagar</button></a>
 						</td>
 						@elseif($rec->estado==0)
 							<td>Sin pagar</td>
 							<td>
-		                        <a href="" data-target="#modal-delete-{{$rec->idrec}}" data-toggle="modal"><button class="btn btn-lg btn-danger">
+		                        <a href="" data-target="#modal-delete-{{$rec->id}}" data-toggle="modal"><button class="btn btn-lg btn-danger">
 		                        <i class="fa fa-credit-card"></i> Pagar</button></a>
 							</td>
 							@endif
-						
+
 					</tr>
 				@endforeach
 			</table>

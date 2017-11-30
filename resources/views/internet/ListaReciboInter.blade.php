@@ -9,11 +9,11 @@
                             </li>
                         </ol>
                     </div>
-               
+
                 <!-- /.row -->
-         
+
         <div class="col-lg-12">
-        
+
         </div>
 </div>
 
@@ -31,15 +31,15 @@
 					<th>NIC</th>
 					<th>Fecha de vencimiento</th>
 					<th>Monto Total</th>
-					<th>Total Consumido</th>
+					<th>Fecha emision</th>
 					<th>Estado</th>
 				</thead>
                @foreach ($recibos as $rec)
 					<tr>
 						<td>{{ $rec->nic}}</td>
-						<td>{{ $rec->fechavencimiento}}</td>
-						<td>{{ $rec->montototal}}</td>
-						<td>{{ $rec->total_consumido}}</td>
+						<td>{{ $rec->fecha_vencimiento}}</td>
+						<td>{{ $rec->monto_total}}</td>
+						<td>{{ $rec->fecha_emision}}</td>
 						@if($rec->estado==1)
 							<td>Pagado</td>
 							<td>
@@ -53,7 +53,7 @@
 		                        <i class="fa fa-credit-card"></i> Pagar</button></a>
 							</td>
 							@endif
-	                        
+
 					</tr>
 				@endforeach
 			</table>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use pagoRecibos\app\recibo;
+use App\Modelos\Recibo;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use DB;
@@ -17,9 +17,15 @@ class telefonoController extends Controller
      */
     public function index()
     {
-        $recibos=DB::table('recibo')->select('idrec','nic','fechavencimiento','montototal','total_consumido','estado','tiporecibo')->where('tiporecibo','3')->get();
-        
-        return view('telefono.ListaReciboTelefono',["recibos"=>$recibos]); 
+      $idAuth = 1;
+      $recibos = Recibo::where([
+        'tipo_recibo'=> 3,
+        'id_usuario' => $idAuth
+      ])->get();
+
+      //return var_dump($recibos);
+
+      return view('telefono.ListaReciboTelefono',["recibos"=>$recibos]);
     }
 
     /**
