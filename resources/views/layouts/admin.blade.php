@@ -117,6 +117,19 @@
                 <small class="label pull-right bg-yellow">IT</small>
               </a>
             </li>
+            @if (Auth::check())
+              <li>
+                <a href="{{ url('logout') }}">
+                  <i class="fa fa-info-circle"></i> <span>Salir</span>
+                </a>
+              </li>
+            @else
+              <li>
+                <a href="{{ url('login') }}">
+                  <i class="fa fa-info-circle"></i> <span>Entrar</span>
+                </a>
+              </li>
+            @endif
 
           </ul>
         </section>
