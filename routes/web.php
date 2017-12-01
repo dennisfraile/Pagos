@@ -24,7 +24,7 @@ Route::post('/charges','Pagos\PagosController@create');
 Route::group(['middleware'=>['web']], function ()
 {
 
-    route::resource('formPagos','pagosController');
+    //route::resource('formPagos','pagosController');
     route::resource('agua','aguaController');
     route::resource('luz','luzController');
     route::resource('telefono','telefonoController');
