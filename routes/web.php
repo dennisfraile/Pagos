@@ -17,7 +17,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/charges', 'Pagos\PagosController@show');
+Route::get('/recibos/{id}/charges', 'Pagos\PagosController@show');
+Route::get('/facturas','Facturas\FacturasController@index');
+Route::get('/facturas/{id}','Facturas\FacturasController@show');
 Route::post('/charges','Pagos\PagosController@create');
 Route::group(['middleware'=>['web']], function ()
 {

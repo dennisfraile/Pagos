@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('contenido')
   <div class="container">
-    <div id="card-errors" role="alert" class="alert alert-danger"></div>
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
@@ -25,8 +24,13 @@
         <div class="form-group">
           <label for="monto" class="col-sm-3 control-label">Monto</label>
           <div class="col-sm-9">
-            <input type="number" step="0.01" min="0"  class="form-control" id="monto" name="monto">
+            <p class="control-label">
+              {{$recibo->monto_total}}
+            </p>
+            <input type="hidden" value="{{$recibo->monto_total}}" id="monto" name="monto">
+            <input type="hidden" value="{{$recibo->id}}" name="id" />
           </div>
+
         </div>
         <div class="form-group">
           <label for="descripcion" class="col-sm-3 control-label">Detallar un poco mas..</label>

@@ -4,14 +4,17 @@ namespace App\Http\Controllers\Pagos;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modelos\Recibo;
+use App\Modelos\Factura;
 
 class PagosController extends Controller
 {
 
-    public function show()
+    public function show($id)
     {
       //Return form.
-      return view('pagos.create');
+
+      return view('pagos.create',['recibo' =>Recibo::find($id)]);
     }
 
     public function create(Request $req)
@@ -26,7 +29,18 @@ class PagosController extends Controller
           "description" => $req->input('descripcion'),
           "source" => $req->input('stripeToken')
         ));
-        return redirect('/charges')->with('status', 'Pago por '. $charge['description'] . ' efectuado.');
+        $recibo = Recibo::find($req->input('id'));
+        $recibo->estado=1;
+        $recibo->save();
+        $factura = new Factura();
+        $factura->total_cancelado = $req->input('monto');
+        $factura->descripcion = $req->input('descripcion');
+        $factura->id_usuario = $recibo->id_usuario;
+        $factura->fecha = date("m/d/y");
+        $factura->save();
+        //SWITCH
+
+        return redirect('/facturas')->with('status', 'Pago por '. $charge['description'] . ' efectuado.');
       } catch (\Stripe\Error\Card $e) {
         $body = $e->getJsonBody();
         $err = $body['error'];

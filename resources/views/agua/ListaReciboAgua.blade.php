@@ -45,13 +45,13 @@
 						@if($rec->estado==1)
 							<td>Pagado</td>
 							<td>
-	                        <a href="" data-target="#modal-delete-{{$rec->id}}" data-toggle="modal"><button class="btn btn-lg btn-danger" disabled>
-	                        <i class="fa fa-credit-card"></i> Pagar</button></a>
+	                       <button class="btn btn-lg btn-success" disabled>
+	                        <i class="fa fa-credit-card"></i> Cancelado</button></a>
 						</td>
 						@elseif($rec->estado==0)
 							<td>Sin pagar</td>
 							<td>
-		                        <a href="" data-target="#modal-delete-{{$rec->id}}" data-toggle="modal"><button class="btn btn-lg btn-danger">
+		                        <a href="{{ url('/recibos/'.$rec->id.'/charges') }}" data-toggle="modal"><button class="btn btn-lg btn-danger">
 		                        <i class="fa fa-credit-card"></i> Pagar</button></a>
 							</td>
 							@endif
