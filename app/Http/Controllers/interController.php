@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Modelos\Recibo;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use DB;
 
@@ -15,9 +16,15 @@ class interController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
     public function index()
     {
-      $idAuth = 1;
+      $idAuth = Auth::id();
       $recibos = Recibo::where([
         'tipo_recibo'=> 4,
         'id_usuario' => $idAuth

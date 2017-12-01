@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modelos\Recibo;
-//use pagoRecibos\app\recibo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use DB;
@@ -16,10 +16,16 @@ class aguaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
     public function index()
     {
         //$recibos=DB::table('recibo')->select('idrec','nic','fechavencimiento','montototal','total_consumido','estado','tiporecibo')->where('tiporecibo','1')->get();
-        $idAuth = 1;
+        $idAuth = Auth::id();
         $recibos = Recibo::where([
           'tipo_recibo'=> 1,
           'id_usuario' => $idAuth

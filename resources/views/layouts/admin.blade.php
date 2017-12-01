@@ -119,15 +119,21 @@
             </li>
             @if (Auth::check())
               <li>
-                <a href="{{ url('logout') }}">
+                <a href="{{ route('logout') }}">
                   <i class="fa fa-info-circle"></i> <span>Salir</span>
                 </a>
               </li>
             @else
               <li>
-                <a href="{{ url('login') }}">
-                  <i class="fa fa-info-circle"></i> <span>Entrar</span>
-                </a>
+                <a href="{{ route('logout') }}"
+    onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+    Logout
+</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
               </li>
             @endif
 
